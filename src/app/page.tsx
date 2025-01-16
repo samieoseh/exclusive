@@ -60,7 +60,7 @@ export default function LandingPage() {
       <header className="shadow-md py-2">
         <nav className="w-[90%] py-1 mx-auto flex items-center justify-between">
           <Menu />
-          <Image src="/logo.png" height={45} width={100} alt="logo.png" />
+          <Image src="/Logo.png" height={45} width={100} alt="logo.png" />
           <div className="flex items-center gap-4 justify-between">
             <div className="relative">
               <Heart />
@@ -79,7 +79,7 @@ export default function LandingPage() {
       </header>
       <main className="w-[90%] mx-auto">
         <section className="py-8">
-          <h1 className="font-extrabold text-3xl">Featured Categories</h1>
+          <h1 className="font-extrabold text-2xl">Featured Categories</h1>
           <div className="py-4">
             <Swiper
               spaceBetween={10}
