@@ -9,7 +9,7 @@ import "swiper/css";
 export default function LandingPage() {
   return (
     <>
-      <header className="xl:border-b shadow-md py-4">
+      <header className="xl:border-b">
         <nav className="hidden xl:flex justify-between items-center w-[80%] mx-auto py-1">
           <ul className="flex items-center justify-between gap-1">
             <li className="flex items-center">
@@ -56,7 +56,9 @@ export default function LandingPage() {
             </div>
           </div>
         </nav>
-        <nav className="w-[90%] py-2 mx-auto flex items-center justify-between">
+      </header>
+      <header className="shadow-md py-2">
+        <nav className="w-[90%] py-1 mx-auto flex items-center justify-between">
           <Menu />
           <Image src="/logo.png" height={45} width={100} alt="logo.png" />
           <div className="flex items-center gap-4 justify-between">
