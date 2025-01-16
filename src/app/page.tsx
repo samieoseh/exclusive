@@ -5,14 +5,11 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
-import { useMediaQuery } from "react-responsive";
 import dynamic from "next/dynamic";
 
 const MediaQuery = dynamic(() => import("react-responsive"), { ssr: false });
 
 export default function LandingPage() {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 408px)" });
-
   return (
     <>
       <header className="xl:border-b">
