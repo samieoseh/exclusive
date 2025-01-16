@@ -4,7 +4,9 @@ import "./globals.css";
 
 const quickSand = Quicksand({
   variable: "--font-quicksand",
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
