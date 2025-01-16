@@ -5,8 +5,14 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
+import { useMediaQuery } from "react-responsive";
+import dynamic from "next/dynamic";
+
+const MediaQuery = dynamic(() => import("react-responsive"), { ssr: false });
 
 export default function LandingPage() {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 408px)" });
+
   return (
     <>
       <header className="xl:border-b">
@@ -80,48 +86,93 @@ export default function LandingPage() {
       <main className="w-[90%] mx-auto">
         <section className="py-8">
           <h1 className="font-extrabold text-2xl">Featured Categories</h1>
-          <div className="py-4">
-            <Swiper
-              spaceBetween={10}
-              slidesPerView={2}
-              onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
-            >
-              <SwiperSlide>
-                <div className="h-[11.262rem] w-[10.688rem] bg-[#F2FCE4] rounded-lg flex flex-col items-center justify-center">
-                  <Image
-                    src="/burger.png"
-                    alt="cake & milk"
-                    width={80}
-                    height={80}
-                  />
-                  <p className="text-md font-semibold">Cake & Milk</p>
-                  <p className="text-sm text-[#7E7E7E]">26 items</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-[11.262rem] w-[10.688rem] bg-[#FFFCEB] rounded-lg flex flex-col items-center justify-center">
-                  <Image src="/kiwi.png" alt="kiwi" width={80} height={80} />
-                  <p className="text-md font-semibold">Organic Kiwi</p>
-                  <p className="text-sm text-[#7E7E7E]">26 items</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-[11.262rem] w-[10.688rem] bg-[#F2FCE4] rounded-lg flex flex-col items-center justify-center">
-                  <Image src="/peach.png" alt="peach" width={80} height={80} />
-                  <p className="text-md font-semibold">Peach</p>
-                  <p className="text-sm text-[#7E7E7E]">12 items</p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-[11.262rem] w-[10.688rem] bg-[#FFFCEB] rounded-lg flex flex-col items-center justify-center">
-                  <Image src="/apple.png" alt="apple" width={80} height={80} />
-                  <p className="text-md font-semibold">Red apple</p>
-                  <p className="text-sm text-[#7E7E7E]">5 items</p>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
+
+          <MediaQuery maxWidth={440}>
+            <div className="py-4">
+              <Swiper
+                spaceBetween={40}
+                slidesPerView={2}
+                onSlideChange={() => console.log("slide change")}
+                onSwiper={(swiper) => console.log(swiper)}
+              >
+                <SwiperSlide>
+                  <div className="h-[11.262rem] w-[10.688rem] bg-[#F2FCE4] rounded-lg flex flex-col items-center justify-center">
+                    <Image
+                      src="/burger.png"
+                      alt="cake & milk"
+                      width={80}
+                      height={80}
+                    />
+                    <p className="text-md font-semibold">Cake & Milk</p>
+                    <p className="text-sm text-[#7E7E7E]">26 items</p>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="h-[11.262rem] w-[10.688rem] bg-[#FFFCEB] rounded-lg flex flex-col items-center justify-center">
+                    <Image src="/kiwi.png" alt="kiwi" width={80} height={80} />
+                    <p className="text-md font-semibold">Organic Kiwi</p>
+                    <p className="text-sm text-[#7E7E7E]">26 items</p>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="h-[11.262rem] w-[10.688rem] bg-[#F2FCE4] rounded-lg flex flex-col items-center justify-center">
+                    <Image
+                      src="/peach.png"
+                      alt="peach"
+                      width={80}
+                      height={80}
+                    />
+                    <p className="text-md font-semibold">Peach</p>
+                    <p className="text-sm text-[#7E7E7E]">12 items</p>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="h-[11.262rem] w-[10.688rem] bg-[#FFFCEB] rounded-lg flex flex-col items-center justify-center">
+                    <Image
+                      src="/apple.png"
+                      alt="apple"
+                      width={80}
+                      height={80}
+                    />
+                    <p className="text-md font-semibold">Red apple</p>
+                    <p className="text-sm text-[#7E7E7E]">5 items</p>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+          </MediaQuery>
+          <MediaQuery minWidth={441}>
+            <div className="flex flex-row flex-wrap gap-3 py-4">
+              <div className="h-[11.262rem] w-[10.688rem] bg-[#F2FCE4] rounded-lg flex flex-col items-center justify-center">
+                <Image
+                  src="/burger.png"
+                  alt="cake & milk"
+                  width={80}
+                  height={80}
+                />
+                <p className="text-md font-semibold">Cake & Milk</p>
+                <p className="text-sm text-[#7E7E7E]">26 items</p>
+              </div>
+
+              <div className="h-[11.262rem] w-[10.688rem] bg-[#FFFCEB] rounded-lg flex flex-col items-center justify-center">
+                <Image src="/kiwi.png" alt="kiwi" width={80} height={80} />
+                <p className="text-md font-semibold">Organic Kiwi</p>
+                <p className="text-sm text-[#7E7E7E]">26 items</p>
+              </div>
+
+              <div className="h-[11.262rem] w-[10.688rem] bg-[#F2FCE4] rounded-lg flex flex-col items-center justify-center">
+                <Image src="/peach.png" alt="peach" width={80} height={80} />
+                <p className="text-md font-semibold">Peach</p>
+                <p className="text-sm text-[#7E7E7E]">12 items</p>
+              </div>
+
+              <div className="h-[11.262rem] w-[10.688rem] bg-[#FFFCEB] rounded-lg flex flex-col items-center justify-center">
+                <Image src="/apple.png" alt="apple" width={80} height={80} />
+                <p className="text-md font-semibold">Red apple</p>
+                <p className="text-sm text-[#7E7E7E]">5 items</p>
+              </div>
+            </div>
+          </MediaQuery>
         </section>
       </main>
     </>
