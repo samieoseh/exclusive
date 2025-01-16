@@ -3,8 +3,8 @@ import Link from "next/link";
 export default function LandingPage() {
   return (
     <>
-      <header className="border-b">
-        <nav className="flex justify-between items-center w-[80%] mx-auto py-1">
+      <header className="xl:border-b">
+        <nav className="hidden xl:flex justify-between items-center w-[80%] mx-auto py-1">
           <ul className="flex items-center justify-between gap-1">
             <li className="flex items-center">
               <Link href="/about-us" className="text-xs text-[#7E7E7E]">
