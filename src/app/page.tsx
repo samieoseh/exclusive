@@ -276,6 +276,7 @@ export default function LandingPage() {
                 className={`${
                   selectedProduct === "all" ? "text-primary" : "text-[#253D4E]"
                 } font-semibold`}
+                onClick={() => setSelectedProduct("all")}
               >
                 All
               </button>
